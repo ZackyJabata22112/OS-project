@@ -1,0 +1,19 @@
+.bg-black-custom {
+    background-color: #111111;
+}
+
+.text-gold {
+    color: #ffd700;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.form-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}

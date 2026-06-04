@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cats_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  web:
+    build: ./web
+    image: your_dockerhub_username/black-cats-web:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/var/www/html
+      - cat_uploads:/var/www/html/images/uploads
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+  cat_uploads:
